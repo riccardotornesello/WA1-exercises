@@ -1,1 +1,1 @@
-# WA1-exercises
+# Lab exercises for Web Applications I
