@@ -11,13 +11,6 @@
   background-color: var(--bs-gray-200);
 }
 
-.filters button {
-  border-radius: 0%;
-  border-left: 0;
-  border-right: 0;
-  text-align: left;
-}
-
 .favorite {
   color: var(--bs-red);
 }
