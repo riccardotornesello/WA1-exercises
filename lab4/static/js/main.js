@@ -1,4 +1,4 @@
-let library, table;
+let library, table, title;
 
 function reloadTable(films) {
   table.innerHTML = "";
@@ -39,6 +39,7 @@ function reloadTable(films) {
 window.addEventListener("load", (event) => {
   library = new FilmLibrary();
   table = document.getElementById("filmsbody");
+  title = document.getElementById("filterTitle");
 
   // Adding the films to the FilmLibrary
   const f1 = new Film(1, "Pulp Fiction", true, "2022-03-10", 5);
@@ -65,15 +66,19 @@ triggerTabList.forEach(function (triggerEl) {
     switch (event.target.id) {
       case "all":
         reloadTable(library.sortByDate());
+        title.innerText = "All";
         break;
       case "favorite":
         reloadTable(library.favorite());
+        title.innerText = "Favorite";
         break;
       case "bestrated":
         reloadTable(library.bestRated());
+        title.innerText = "Best rated";
         break;
       case "seenlastmonth":
         reloadTable(library.seenLastMonth());
+        title.innerText = "Seen last month";
         break;
     }
   });
