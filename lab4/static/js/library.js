@@ -58,6 +58,30 @@ function FilmLibrary() {
     return new_list;
   };
 
+  this.bestRated = () => {
+    const new_list = this.list.filter(function (film, index, arr) {
+      return film.rating == 5;
+    });
+    return new_list;
+  };
+
+  this.favorite = () => {
+    const new_list = this.list.filter(function (film, index, arr) {
+      return film.favorite == true;
+    });
+    return new_list;
+  };
+
+  this.seenLastMonth = () => {
+    const new_list = this.list.filter(function (film, index, arr) {
+      let now = dayjs();
+      return (
+        film.watchDate && now.diff(film.watchDate) < 30 * 24 * 60 * 60 * 1000
+      );
+    });
+    return new_list;
+  };
+
   this.sortByDate = () => {
     const new_array = [...this.list];
     new_array.sort((f1, f2) => {
